@@ -14,12 +14,9 @@ namespace DatabaseConnection
 {
     class Person
     {
+        // creates an object person
         public int UserID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public override string ToString()
-        {
-            return "Person: " + FirstName + " " + LastName;
-        }
     }
 }

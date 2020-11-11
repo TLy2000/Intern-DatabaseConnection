@@ -29,12 +29,14 @@ namespace DatabaseConnection
         }
         private static void ReadDatabase()
         {
+            // reads from the database
             string table = "[dbo].[Table]";
             SqlConnection conn = new SqlConnection(Helper.CnnVal("dboPeopledb"));
             conn.Open();
             SqlCommand cmdRd = new SqlCommand("SELECT FirstName, LastName FROM " + table, conn);
             SqlDataReader reader = cmdRd.ExecuteReader();
             Console.WriteLine("Last name, First name");
+            // reads each line while there is something in the row
             while (reader.Read())
             {
                 Console.WriteLine("{1}, {0}", reader.GetString(0), reader.GetString(1));
@@ -44,9 +46,11 @@ namespace DatabaseConnection
         }
         private static void WriteToDatabase(Person person)
         {
+            // writes to the database
             string table = "[dbo].[Table]";
             SqlConnection conn = new SqlConnection(Helper.CnnVal("dboPeopledb"));
             conn.Open();
+            // sql commands to insert each field in the corresponding column
             SqlCommand insertComm = new SqlCommand("INSERT INTO " + table + "(UserID, FirstName, LastName) VALUES (@0, @1, @2)", conn);
             insertComm.Parameters.Add(new SqlParameter("0", person.UserID));
             insertComm.Parameters.Add(new SqlParameter("1", person.FirstName));
@@ -57,6 +61,7 @@ namespace DatabaseConnection
         }
         private static int GetID()
         {
+            // gets the userid, which functions as the primary key
             string table = "[dbo].[Table]";
             SqlConnection conn = new SqlConnection(Helper.CnnVal("dboPeopledb"));
             Int32 id = 0;

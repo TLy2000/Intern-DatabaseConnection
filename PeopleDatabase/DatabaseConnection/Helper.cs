@@ -14,10 +14,13 @@ namespace DatabaseConnection
 {
     public static class Helper
     {
+        // separate methods 
         public static string CnnVal(string name)
         {
+            // connection string that is coded in the app.config
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
+        // methods to get the name information
         public static string GetFirstName()
         {
             string firstName = "";

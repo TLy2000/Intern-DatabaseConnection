@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseConnection
 {
-    public class DataAccess
+    class Class1
     {
-        /*public List<Person> GetPeople(string lastName)
-        {
-            throw new NotImplementedException();
-        }*/
-
     }
 }
